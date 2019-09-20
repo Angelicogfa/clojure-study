@@ -26,3 +26,28 @@
   (> (:valor transacao) 100))
 
 (filter valor-grande? transacoes)
+
+((fn [nome]
+   (str "Olá, " nome "!")) "mundo novo")
+
+(def ola (fn [nome] 
+           (str "Olá, " nome "!")))
+
+(ola "mundo novo")
+
+(defn ola [nome]
+  ;; Definição do método
+  (str "Olá, " nome "!"))
+
+(ola "mundo novo")
+
+(filter (fn [transacao]
+          (> (:valor transacao) 100))
+        transacoes)
+
+(filter #(> (:valor %) 100) transacoes)
+
+(->> transacoes
+     (filter #(= (:tipo %) "despesa"))
+     (map #(:valor %))
+     (reduce +))
