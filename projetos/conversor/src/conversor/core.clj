@@ -2,6 +2,7 @@
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Nosso proprio main"
   [& args]
-  (println "Hello, World!"))
+  (println "Temos " (count args) "argumentos")
+  (println "São eles: " args))
