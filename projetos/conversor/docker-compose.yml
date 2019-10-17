@@ -4,3 +4,5 @@ services:
   app:
     container_name: app
     build: .
+    environment: 
+      CHAVE_API: sua_key_aqui
