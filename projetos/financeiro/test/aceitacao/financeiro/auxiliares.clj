@@ -20,7 +20,21 @@
   (println rota)
   rota)
 
+(defn conteudo-como-json [transacao]
+  {:content-type :json
+   :body (json/generate-string transacao)
+   :throw-exceptions false})
+
+(defn despesa [valor]
+  (conteudo-como-json {:valor valor :tipo "despesa"}))
+
+(defn receita [valor]
+  (conteudo-como-json {:valor valor :tipo "receita"}))
+
 (defn conteudo [rota]
   (-> (str "http://localhost:" porta-padrao rota)
-      (log-rota)
       (http/get {:throw-exceptions false})))
+
+(defn alterar [rota conteudo]
+  (-> (str "http://localhost:" porta-padrao rota)
+      (http/post conteudo)))
