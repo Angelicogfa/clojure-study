@@ -23,5 +23,4 @@
 (defn conteudo [rota]
   (-> (str "http://localhost:" porta-padrao rota)
       (log-rota)
-      (http/get {:throw-exceptions false})
-      (:body)))
+      (http/get {:throw-exceptions false})))

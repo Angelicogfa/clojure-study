@@ -11,6 +11,6 @@
           application-type (get-in response [:headers "Content-Type"])
           body (json/parse-string (:body response) true)]
       (is (= status 200))
-      (is (= application-type "application/json; charset=utf-8"))
+      (is (= application-type "application/json;charset=utf-8"))
       (is (= body {:saldo 0})))
     (parar-servidor)))
